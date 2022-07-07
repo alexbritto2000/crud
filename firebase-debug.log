@@ -1,0 +1,56 @@
+[debug] [2022-05-02T10:08:57.837Z] ----------------------------------------------------------------------
+[debug] [2022-05-02T10:08:57.842Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Admin\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js login --no-localhost
+[debug] [2022-05-02T10:08:57.843Z] CLI Version:   10.7.2
+[debug] [2022-05-02T10:08:57.844Z] Platform:      win32
+[debug] [2022-05-02T10:08:57.844Z] Node Version:  v16.14.2
+[debug] [2022-05-02T10:08:57.940Z] Time:          Mon May 02 2022 15:38:57 GMT+0530 (India Standard Time)
+[debug] [2022-05-02T10:08:57.941Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-05-02T10:08:57.965Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[info] i  Firebase optionally collects CLI usage and error reporting information to help improve our products. Data is collected in accordance with Google's privacy policy (https://policies.google.com/privacy) and is not used to identify you.
+ 
+[debug] [2022-05-02T10:08:58.853Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2022-05-02T10:08:58.853Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[info] i  To change your data collection preference at any time, run `firebase logout` and log in again. 
+[debug] [2022-05-02T10:09:01.437Z] >>> [apiv2][query] POST https://auth.firebase.tools/attest [none]
+[debug] [2022-05-02T10:09:01.437Z] >>> [apiv2][body] POST https://auth.firebase.tools/attest {"session_id":"eb937508-0665-4648-b0c4-4fa105885085"}
+[debug] [2022-05-02T10:09:02.013Z] <<< [apiv2][status] POST https://auth.firebase.tools/attest 200
+[debug] [2022-05-02T10:09:02.014Z] <<< [apiv2][body] POST https://auth.firebase.tools/attest {"token":"Me6q4ZL6NvhzkYywYQEdtgy3B2FbryHrwbFYL9VL_bo"}
+[info] 
+[info] To sign in to the Firebase CLI:
+[info] 
+[info] 1. Take note of your session ID:
+[info] 
+[info]    EB937
+[info] 
+[info] 2. Visit the URL below on any device and follow the instructions to get your code:
+[info] 
+[info]    https://auth.firebase.tools/login?code_challenge=E74VeccX0BK-Q-FXnVHf91FbpqJytlJIffJG4Rp6bGk&session=eb937508-0665-4648-b0c4-4fa105885085&attest=Me6q4ZL6NvhzkYywYQEdtgy3B2FbryHrwbFYL9VL_bo
+[info] 
+[info] 3. Paste or enter the authorization code below once you have it:
+[info] 
+[debug] [2022-05-02T10:15:48.067Z] ----------------------------------------------------------------------
+[debug] [2022-05-02T10:15:48.069Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Admin\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js login:ci --no-localhost
+[debug] [2022-05-02T10:15:48.070Z] CLI Version:   10.7.2
+[debug] [2022-05-02T10:15:48.070Z] Platform:      win32
+[debug] [2022-05-02T10:15:48.070Z] Node Version:  v16.14.2
+[debug] [2022-05-02T10:15:48.072Z] Time:          Mon May 02 2022 15:45:48 GMT+0530 (India Standard Time)
+[debug] [2022-05-02T10:15:48.072Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-05-02T10:15:48.171Z] >>> [apiv2][query] POST https://auth.firebase.tools/attest [none]
+[debug] [2022-05-02T10:15:48.171Z] >>> [apiv2][body] POST https://auth.firebase.tools/attest {"session_id":"575091f2-6e3d-4fd2-85e6-3273eb0d5bdd"}
+[debug] [2022-05-02T10:15:48.660Z] <<< [apiv2][status] POST https://auth.firebase.tools/attest 200
+[debug] [2022-05-02T10:15:48.661Z] <<< [apiv2][body] POST https://auth.firebase.tools/attest {"token":"ZZT_nlU-sOD7wgRb9RkroOXFzT_uvuTvfZW0bPGGZD4"}
+[info] 
+[info] To sign in to the Firebase CLI:
+[info] 
+[info] 1. Take note of your session ID:
+[info] 
+[info]    57509
+[info] 
+[info] 2. Visit the URL below on any device and follow the instructions to get your code:
+[info] 
+[info]    https://auth.firebase.tools/login?code_challenge=4FaWd9_lh2frzDx9OZhv2SjmnHknilDXmGSG4uJExZw&session=575091f2-6e3d-4fd2-85e6-3273eb0d5bdd&attest=ZZT_nlU-sOD7wgRb9RkroOXFzT_uvuTvfZW0bPGGZD4
+[info] 
+[info] 3. Paste or enter the authorization code below once you have it:
+[info] 

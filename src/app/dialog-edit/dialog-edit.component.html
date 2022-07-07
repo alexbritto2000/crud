@@ -1,0 +1,98 @@
+<div class="edit">
+
+    <h2 mat-dialog-title>Are you sure edit this element?</h2>
+    
+        <form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm)">
+          <mat-dialog-content>
+            <div class="form-group">
+                <label>user Id</label>
+                <input type="number" formControlName="userId" [ngModel]="editVal.val.userId"  type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userId.errors }" style="margin-bottom: 15px;">
+          
+                <div *ngIf="submitted && f.userId.errors" class="invalid-feedback">
+                  <div *ngIf="f.userId.errors.required">User Id is required</div>
+                  <div *ngIf="f.userId.errors.pattern">User Id must contains only number</div>
+                </div>
+
+                <label>Job Title</label>
+                <input type="text" formControlName="job" [ngModel]="editVal.val.job"  type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.job.errors }" style="margin-bottom: 15px;">
+          
+                <div *ngIf="submitted && f.job.errors" class="invalid-feedback">
+                  <div *ngIf="f.job.errors.required">Job title is required</div>
+                </div>
+                
+                <label>Branch Name</label><br>
+                <mat-form-field appearance="fill">
+                  <mat-select formControlName="branch" [ngModel]="editVal.val.branch">
+                    <mat-option value="chennai">Chennai</mat-option>
+                    <mat-option value="madurai">Madurai</mat-option>
+                    <mat-option value="covai">Covai</mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <h4>Country</h4>
+                <mat-form-field appearance="fill">
+                  <mat-label>Select Country</mat-label>
+                  <mat-select  formControlName="country" (ngModelChange)="getState(editForm.controls.country.value)">
+                    <mat-option *ngFor="let country of countriesName" [value]="country.iso2">
+                      {{country.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <!-- {{this.countriesName | json}} -->
+                <!-- {{editVal.val.country}} -->
+                <!-- (change)="getState(value)" #value -->
+
+                <h4>State</h4>
+                <mat-form-field appearance="fill">
+                  <mat-label>Select State</mat-label>
+                  <mat-select  formControlName="state" (ngModelChange)="getcities(editForm.controls.country.value, editForm.controls.state.value)">
+                    <mat-option *ngFor="let state of stateName" [value]="state.iso2">
+                      {{state.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <!-- {{editVal.val.state}} -->
+                <!-- (change)="getcities(value1,value2)" #value1 #value2 -->
+
+                <h4>City</h4>
+                <mat-form-field appearance="fill">
+                  <mat-label>Select City</mat-label>
+                  <mat-select  formControlName="city">
+                    <mat-option *ngFor="let city of cityName" [value]="city.name">
+                      {{city.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <!-- {{editVal.val.city}} -->
+
+                 <p>Technology</p>
+                 <ol formArrayName="tech">
+                   <li
+                     [formGroupName]="i"
+                     *ngFor="let item of editForm.controls?.tech?.controls; let i = index"
+                   >
+                     <input type="checkbox" formControlName="checked" /> {{ tech[i].name }}
+                   </li>
+                 </ol>
+
+                 <label>Employee Status</label>
+                 <mat-radio-group aria-label="Select an option">
+                  <div class="custom-control custom-radio">
+                    <input id="fresher" type="radio" class="custom-control-input" value="fresher" name="empstatus" formControlName="empstatus">
+                    <label class="custom-control-label" for="fresher" style="margin-right:10px;">Fresher</label>
+
+                    <input id="experienced" type="radio" class="custom-control-input" value="experienced" name="empstatus" formControlName="empstatus">
+                    <label class="custom-control-label" for="experienced">Experienced</label>
+                  </div>
+                </mat-radio-group>
+                <!-- <pre>{{ result | json }}</pre> -->
+
+              </div>
+              </mat-dialog-content>
+              <mat-dialog-actions>
+                <button class="btn btn-primary" style="margin-right:10px;" type="submit"mat-button>Submit</button>
+                <button class="btn btn-danger" mat-button mat-dialog-close="false">cancel</button>
+                <!-- mat-dialog-close="error=='valid'" -->
+            </mat-dialog-actions>
+        </form>
+</div>

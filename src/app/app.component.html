@@ -1,0 +1,107 @@
+<h1>App component is running</h1>
+{{gettodo | json}}
+<app-todo></app-todo>
+<!-- <div class="container">
+    <div class="row justify-content-center p-2">
+        <div class="form-group" style="margin-bottom:20px;">
+            <input type="text" class="form-control" [(ngModel)]="employeeName" placeholder="Enter Emloyee Name">
+        </div>
+        <div class="form-group" style="margin-bottom:20px;">
+            <input type="number" class="form-control" [(ngModel)]="employeeAge" placeholder="Enter Emloyee Age">
+        </div>
+        <div class="form-group" style="margin-bottom:20px;">
+            <input type="text" class="form-control" [(ngModel)]="employeeAddress" placeholder="Enter Emloyee Address">
+        </div>
+        <div class="form-group" style="margin-bottom:20px;">
+            <button class="btn btn-primary" (click)="CreateRecord()">Create Employee</button>
+        </div>
+    </div>
+</div> -->
+<h4>GET data</h4>
+{{gettodo | json}}<br>
+<h4>PUT data</h4>
+<!-- {{puttodo | json}}<br>
+{{pattodo | json}} -->
+<h4>Delete data</h4>
+{{deletetodo | json}}
+{{afterdeltodo | json}}
+<h4>After insert</h4>
+
+<div class="buttons" style="text-align:right;margin-right: 25px;">
+  <button class="btn btn-primary" mat-icon-button color="primary" (click)="openAddDialog()" style="margin-right: 5px;">
+    Add
+  </button>
+  <button class="btn btn-warning" mat-icon-button color="btn-warning" (click)="delAllElement()">
+    Delete All
+  </button>
+</div>
+<br>
+<div class="example-container mat-elevation-z8" ><!-- *ngIf="dataSource.length !== 0" -->
+    <mat-table #table [dataSource]="dataSource" >
+  
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+  
+      <!-- Id Column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef > Id </mat-header-cell>
+        <mat-cell *matCellDef="let element; index as i" > {{element.id}}</mat-cell>
+      </ng-container>
+  
+      <!-- User ID Column -->
+      <ng-container matColumnDef="userId">
+        <mat-header-cell *matHeaderCellDef> User ID </mat-header-cell>
+        <mat-cell *matCellDef="let element; index as i"> {{element.userId }} </mat-cell>
+      </ng-container>
+  
+      <!-- Job Title Column -->
+      <ng-container matColumnDef="job">
+        <mat-header-cell *matHeaderCellDef> Role </mat-header-cell>
+        <mat-cell *matCellDef="let element; index as i"> {{element.job }} </mat-cell>
+      </ng-container>
+
+      <!-- Branch Column -->
+      <ng-container matColumnDef="branch">
+        <mat-header-cell *matHeaderCellDef> Branch </mat-header-cell>
+        <mat-cell *matCellDef="let element; index as i"> {{element.branch }} </mat-cell>
+      </ng-container>
+
+       <!-- Tech Column -->
+       <ng-container matColumnDef="tech">
+        <mat-header-cell *matHeaderCellDef> Known Technology </mat-header-cell>
+        <mat-cell *matCellDef="let element; index as i"> {{element.tech[0].checked | json}} </mat-cell>
+      </ng-container>
+
+      <!-- status Column -->
+      <ng-container matColumnDef="empstatus">
+        <mat-header-cell *matHeaderCellDef> Employee Status </mat-header-cell>
+        <mat-cell *matCellDef="let element; index as i"> {{element.empstatus }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions <!-- <button class="btn btn-primary" mat-icon-button color="primary" (click)="openAddDialog()" style="margin-right: 5px;">
+          Add
+        </button>
+        <button class="btn btn-warning" mat-icon-button color="btn-warning" (click)="delAllElement()">
+          Delete All
+        </button> --></th>
+        <td mat-cell *matCellDef="let element">
+                <button class="btn btn-primary" mat-icon-button color="primary" (click)="openEditDialog(element)" style="width:100%;padding-right:13px;margin-top:10px;">
+                  Edit
+                </button>
+                <button class="btn btn-warning" mat-icon-button color="btn-warning" (click)="delElement(element)" style="width:100%;padding-right:13px;margin-top:10px;">
+                  Delete
+                </button>
+                <!-- <button mat-icon-button matTooltip="Click to Delete" class="iconbutton"
+                color="warn" (click)="openAddDialog(element)" style="width:100%;">
+                Delete</button> -->
+                <!-- <button mat-icon-button matTooltip="Click to Delete" class="iconbutton"
+                color="warn" (click)="openDialog(element)" style="width:100%;">
+                Delete</button><br> --> 
+        </td>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>

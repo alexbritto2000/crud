@@ -1,0 +1,8 @@
+/*Dialogbox SCrollable option disabled*/
+/* .mat-dialog-content {
+    display: revert !important;
+} */
+.mat-dialog-container {
+    background: rgba(0,0,0,.87) !important;
+    color: white !important;
+}

@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-dialog-container {
+    background: rgba(0,0,0,.87) !important;
+    color: white !important;
+}
+.mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: white !important;
+    padding: 4px 38px 0px !important;
+}

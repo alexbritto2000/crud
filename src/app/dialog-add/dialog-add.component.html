@@ -1,0 +1,100 @@
+<div class="edit">
+
+    <h2 mat-dialog-title>Add new element</h2>
+        <form [formGroup]="addForm" (ngSubmit)="onSubmit(addForm)">
+            <div class="form-group">
+              <mat-dialog-content>
+                <mat-label>user Id</mat-label>
+                <input type="number" matInput formControlName="userId" type="text" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.userId.errors }" style="margin-bottom: 15px;">
+              
+                <div *ngIf="submitted && f.userId.errors" class="invalid-feedback">
+                  <div *ngIf="f.userId.errors.required">User Id is required</div>
+                  <div *ngIf="f.userId.errors.pattern">User Id must contains only number</div>
+                </div>
+
+                <mat-label>Job Title</mat-label>
+                <input type="text" matInput formControlName="job"  type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.job.errors }" style="margin-bottom: 15px;">
+          
+                <div *ngIf="submitted && f.job.errors" class="invalid-feedback">
+                  <div *ngIf="f.job.errors.required">Job title is required</div>
+                </div>
+
+              <label>Branch Name</label><br>
+                <mat-form-field appearance="fill">
+                  <mat-select formControlName="branch">
+                    <mat-option value="chennai">Chennai</mat-option>
+                    <mat-option value="madurai">Madurai</mat-option>
+                    <mat-option value="covai">Covai</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <div *ngIf="submitted && f.branch.errors" class="invalid-feedback">
+                  <div *ngIf="f.branch.errors.required">Branch name is required</div>
+                </div><br>
+
+                <h4>Country</h4>
+                <mat-form-field appearance="fill">
+                  <mat-label>Select Country</mat-label>
+                  <mat-select  formControlName="country" [(ngModel)]="country" (ngModelChange)="getState(country)">
+                    <mat-option *ngFor="let country of countriesName" [value]="country.iso2">
+                      {{country.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                 <!-- {{country}}  -->
+
+                <h4>State</h4>
+                <mat-form-field appearance="fill">
+                  <mat-label>Select State</mat-label>
+                  <mat-select  formControlName="state" [(ngModel)]="state" (ngModelChange)="getcities(country, state)">
+                    <mat-option *ngFor="let state of stateName" [value]="state.iso2">
+                      {{state.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <!-- {{state}}  -->
+
+                <h4>City</h4>
+                <mat-form-field appearance="fill">
+                  <mat-label>Select City</mat-label>
+                  <mat-select  formControlName="city" [(ngModel)]="city" >
+                    <mat-option *ngFor="let city of cityName" [value]="city.name">
+                      {{city.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <!-- {{city}}  -->
+
+                <p>Technology</p>
+                 <ol formArrayName="tech">
+                   <li
+                     [formGroupName]="i"
+                     *ngFor="let item of addForm.controls?.tech?.controls; let i = index"
+                   >
+                     <input type="checkbox" formControlName="checked" /> {{ tech[i].name }}
+                   </li>
+                 </ol>
+
+                <label>Employee Status</label>
+                <mat-radio-group aria-label="Select an option">
+                 <div class="custom-control custom-radio">
+                   <input id="fresher" type="radio" class="custom-control-input" value="fresher" name="empstatus" formControlName="empstatus">
+                   <label class="custom-control-label" for="fresher" style="margin-right:10px;">Fresher</label>
+
+                   <input id="experienced" type="radio" class="custom-control-input" value="experienced" name="empstatus" formControlName="empstatus">
+                   <label class="custom-control-label" for="experienced">Experienced</label>
+                 </div>
+               </mat-radio-group>
+               <div *ngIf="submitted && f.empstatus.errors" class="invalid-feedback">
+                <div *ngIf="f.empstatus.errors.required">Employee status is required</div>
+              </div>
+              </mat-dialog-content>
+
+              </div>
+
+              <mat-dialog-actions>
+                <button class="btn btn-primary" style="margin-right:10px;" type="submit" mat-button>Submit</button>
+                <button class="btn btn-danger" mat-button mat-dialog-close="false">cancel</button>
+                <!-- mat-dialog-close="error=='valid'" -->
+            </mat-dialog-actions>
+        </form>
+</div>
